@@ -1,0 +1,140 @@
+{
+  "scope": "Generated demonstration records; not Emirates findings",
+  "observationAt": "2026-10-23T00:00:00Z",
+  "totals": {
+    "total": 32,
+    "active": 20,
+    "completed": 12,
+    "returned": 4,
+    "blocked": 4,
+    "historicallyReturned": 8,
+    "returnRate": 25,
+    "avgTurnaroundHours": 35.5,
+    "medianTurnaroundHours": 29,
+    "p90TurnaroundHours": 52.9,
+    "observedHours": 642,
+    "openHours": 1246,
+    "missingEventHistories": 0
+  },
+  "recommendations": [
+    {
+      "id": "REC-01",
+      "title": "Catch incomplete submissions before routing",
+      "description": "Apply explicit field checks and show a request-type-specific example before submission.",
+      "affectedCount": 4,
+      "requestIds": [
+        "P2P-1003",
+        "P2P-1011",
+        "P2P-1019",
+        "P2P-1027"
+      ],
+      "baselineHours": 224,
+      "observedHours": 0,
+      "openHours": 224,
+      "evidence": "4 selected requests; 0 completed-interval hours and 224 currently open hours. Supporting events: P2P-1003-E03, P2P-1003-E04, P2P-1011-E03, P2P-1011-E04, P2P-1019-E03, P2P-1019-E04, P2P-1027-E03, P2P-1027-E04.",
+      "assumption": "Conditional scenario: reduce correction waits associated with missing information elapsed time by 50% (sensitivity range 25–65%). These percentages are explicit planning assumptions, not estimated treatment effects.",
+      "elapsedHoursSaved": 112,
+      "lowHoursSaved": 56,
+      "highHoursSaved": 145.6,
+      "effortHoursSaved": null,
+      "implementationEffortHours": null,
+      "calculation": "224 relevant elapsed hours × 50% assumed reduction",
+      "steps": [
+        "Add and version the relevant submission rules.",
+        "Pilot with comparable request types.",
+        "Measure return rate and completed turnaround."
+      ],
+      "caveat": "Synthetic event evidence only. Open waits are right-censored at the observation timestamp. The scenario estimates elapsed turnaround opportunity, not HR labour or money. Validate benefits in a pilot. Do not sum recommendations without reconciling overlapping event intervals.",
+      "confidence": "Scenario estimate",
+      "dataScope": "Generated synthetic data only",
+      "evidenceEventIds": [
+        "P2P-1003-E03",
+        "P2P-1003-E04",
+        "P2P-1011-E03",
+        "P2P-1011-E04",
+        "P2P-1019-E03",
+        "P2P-1019-E04",
+        "P2P-1027-E03",
+        "P2P-1027-E04"
+      ]
+    },
+    {
+      "id": "REC-02",
+      "title": "Confirm the approval route before sending",
+      "description": "Show the proposed human approvers and the organisational evidence used to choose them.",
+      "affectedCount": 4,
+      "requestIds": [
+        "P2P-1005",
+        "P2P-1013",
+        "P2P-1021",
+        "P2P-1029"
+      ],
+      "baselineHours": 102,
+      "observedHours": 102,
+      "openHours": 0,
+      "evidence": "4 selected requests; 102 completed-interval hours and 0 currently open hours. Supporting events: P2P-1005-E03, P2P-1005-E04, P2P-1013-E03, P2P-1013-E04, P2P-1021-E03, P2P-1021-E04, P2P-1029-E03, P2P-1029-E04.",
+      "assumption": "Conditional scenario: reduce correction waits associated with routing returns elapsed time by 50% (sensitivity range 25–60%). These percentages are explicit planning assumptions, not estimated treatment effects.",
+      "elapsedHoursSaved": 51,
+      "lowHoursSaved": 25.5,
+      "highHoursSaved": 61.2,
+      "effortHoursSaved": null,
+      "implementationEffortHours": null,
+      "calculation": "102 relevant elapsed hours × 50% assumed reduction",
+      "steps": [
+        "Display the route and its source.",
+        "Ask an authorised human to confirm exceptions.",
+        "Compare routing returns for equivalent requests."
+      ],
+      "caveat": "Synthetic event evidence only. Open waits are right-censored at the observation timestamp. The scenario estimates elapsed turnaround opportunity, not HR labour or money. Validate benefits in a pilot. Do not sum recommendations without reconciling overlapping event intervals.",
+      "confidence": "Scenario estimate",
+      "dataScope": "Generated synthetic data only",
+      "evidenceEventIds": [
+        "P2P-1005-E03",
+        "P2P-1005-E04",
+        "P2P-1013-E03",
+        "P2P-1013-E04",
+        "P2P-1021-E03",
+        "P2P-1021-E04",
+        "P2P-1029-E03",
+        "P2P-1029-E04"
+      ]
+    },
+    {
+      "id": "REC-03",
+      "title": "Coordinate unresolved upstream dependencies",
+      "description": "Name the upstream request and the person responsible for resolving the blocked transaction.",
+      "affectedCount": 4,
+      "requestIds": [
+        "P2P-1004",
+        "P2P-1012",
+        "P2P-1020",
+        "P2P-1028"
+      ],
+      "baselineHours": 412,
+      "observedHours": 0,
+      "openHours": 412,
+      "evidence": "4 selected requests; 0 completed-interval hours and 412 currently open hours. Supporting events: P2P-1004-E04, P2P-1012-E04, P2P-1020-E04, P2P-1028-E04.",
+      "assumption": "Conditional scenario: reduce currently open dependency waits elapsed time by 25% (sensitivity range 10–35%). These percentages are explicit planning assumptions, not estimated treatment effects.",
+      "elapsedHoursSaved": 103,
+      "lowHoursSaved": 41.2,
+      "highHoursSaved": 144.2,
+      "effortHoursSaved": null,
+      "implementationEffortHours": null,
+      "calculation": "412 relevant elapsed hours × 25% assumed reduction",
+      "steps": [
+        "Validate and link the upstream request.",
+        "Notify both responsible owners.",
+        "Measure resolved-blocker time in a pilot."
+      ],
+      "caveat": "Synthetic event evidence only. Open waits are right-censored at the observation timestamp. The scenario estimates elapsed turnaround opportunity, not HR labour or money. Validate benefits in a pilot. Do not sum recommendations without reconciling overlapping event intervals.",
+      "confidence": "Scenario estimate",
+      "dataScope": "Generated synthetic data only",
+      "evidenceEventIds": [
+        "P2P-1004-E04",
+        "P2P-1012-E04",
+        "P2P-1020-E04",
+        "P2P-1028-E04"
+      ]
+    }
+  ]
+}

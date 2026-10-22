@@ -1,0 +1,27 @@
+{
+  "officialTestSetStatus": "NOT_SUPPLIED",
+  "scope": "DEMONSTRATION_ONLY",
+  "observationAt": "2026-10-23T00:00:00Z",
+  "requestCount": 32,
+  "inflightCount": 20,
+  "officialPredictionCount": 0,
+  "sourceModules": [
+    "public/compass/workflow.js",
+    "public/compass/analytics.js",
+    "public/compass/predictions.js"
+  ],
+  "files": {
+    "DEMO_ONLY_process_recommendations.json": {
+      "sha256": "46514ba9b6bfd1c36fd2b7cfea780bcb55935c9674b5ff3c49c9643b520b59bd"
+    },
+    "DEMO_ONLY_event_log.csv": {
+      "sha256": "5d32a69afc76b6e453b22f9d9ff186b74091173b9e1de173434e2af1781cc68d"
+    },
+    "DEMO_ONLY_requests.csv": {
+      "sha256": "0a2fdb3a51c2926235e7bf97b2f2f04c1481cddf68b0d82ac606debf0c47e6e7"
+    },
+    "DEMO_ONLY_model_report.json": {
+      "sha256": "660aeefa45a56bf51ffd67c2accfddd3630b411e9b22ef6d0e32c5f18c497085"
+    }
+  }
+}

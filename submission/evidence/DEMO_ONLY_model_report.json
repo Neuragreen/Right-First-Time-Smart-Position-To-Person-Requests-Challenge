@@ -1,0 +1,139 @@
+{
+  "version": "synthetic-logistic-v2.2",
+  "scope": "Generated synthetic data only",
+  "method": "Two L2-regularised logistic regression baselines, fitted locally with deterministic gradient descent.",
+  "generatedCases": 1200,
+  "generatedPeriod": {
+    "from": "2026-05-01T00:00:00.000Z",
+    "to": "2026-06-25T09:29:04.344Z"
+  },
+  "observationPolicy": "One sampled in-flight observation per request, from submission through 65% of its illustrative target. Future events are excluded from features. Completed cases are excluded from forecast evaluation; previously returned cases are also excluded from return forecast evaluation.",
+  "split": {
+    "method": "Chronological whole-request holdout; training cases purged unless outcomes matured before test submissions; normalisation fitted on training only.",
+    "trainingCutoff": "2026-06-10T00:00:00.000Z",
+    "purgedCases": 59,
+    "trainCases": 901,
+    "testCases": 240,
+    "trainFrom": "2026-05-01T00:00:00.000Z",
+    "trainTo": "2026-06-08T06:00:00.000Z",
+    "testFrom": "2026-06-10T00:00:00.000Z",
+    "testTo": "2026-06-19T23:00:00.000Z"
+  },
+  "features": [
+    {
+      "key": "transfer",
+      "label": "Employee transfer"
+    },
+    {
+      "key": "create",
+      "label": "Position creation"
+    },
+    {
+      "key": "endService",
+      "label": "End-of-service action"
+    },
+    {
+      "key": "missing",
+      "label": "Missing required submission fields"
+    },
+    {
+      "key": "shortJustification",
+      "label": "Short business justification"
+    },
+    {
+      "key": "dependency",
+      "label": "Declared transaction dependency"
+    },
+    {
+      "key": "crossDepartment",
+      "label": "Movement between departments"
+    },
+    {
+      "key": "gradeChange",
+      "label": "Difference in position grades"
+    },
+    {
+      "key": "leadDays",
+      "label": "Effective-date lead time"
+    },
+    {
+      "key": "elapsedRatio",
+      "label": "Elapsed time relative to target"
+    },
+    {
+      "key": "waitRatio",
+      "label": "Current-step wait relative to target"
+    },
+    {
+      "key": "priorReturns",
+      "label": "Returns observed before this prediction"
+    },
+    {
+      "key": "blocked",
+      "label": "Blocker recorded before this prediction"
+    }
+  ],
+  "outcomes": {
+    "delay": {
+      "label": "Completion exceeds the request’s illustrative calendar-hour target",
+      "targetBasis": "Calendar elapsed time; not an Emirates SLA"
+    },
+    "return": {
+      "label": "A correction return occurs before completion; forecast only while no return is observed"
+    }
+  },
+  "metrics": {
+    "delay": {
+      "n": 228,
+      "positiveRate": 0.4123,
+      "accuracy": 0.7807,
+      "precision": 0.8548,
+      "recall": 0.5638,
+      "f1": 0.6795,
+      "brier": 0.1479,
+      "rocAuc": 0.8592,
+      "baselineBrier": 0.2423,
+      "trainingBaseRate": 0.4079,
+      "confusion": {
+        "tp": 53,
+        "fp": 9,
+        "tn": 125,
+        "fn": 41
+      }
+    },
+    "return": {
+      "n": 192,
+      "positiveRate": 0.0938,
+      "accuracy": 0.9115,
+      "precision": 0.6667,
+      "recall": 0.1111,
+      "f1": 0.1905,
+      "brier": 0.0683,
+      "rocAuc": 0.848,
+      "baselineBrier": 0.0851,
+      "trainingBaseRate": 0.1057,
+      "confusion": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 173,
+        "fn": 16
+      }
+    }
+  },
+  "threshold": 0.5,
+  "limitations": [
+    "Generated labels and patterns are not evidence of Emirates performance or judge-test accuracy.",
+    "Displayed probabilities are uncalibrated synthetic baseline estimates; real-data calibration and validation are required.",
+    "No business calendars, external HR systems or employee-sensitive features are used.",
+    "Training assumes a complete event log; missing events, changed processes and out-of-distribution requests can reduce reliability.",
+    "Grade or department comparisons missing from the position register are encoded as zero and disclosed.",
+    "Observed overdue, returned and completed states are facts, not model predictions."
+  ],
+  "leakageControls": [
+    "Whole requests remain in one chronological partition.",
+    "Training normalisation and weights never use the held-out partition.",
+    "Feature extraction ignores all events after the observation timestamp.",
+    "Final duration, final outcome and future return reasons are never model features.",
+    "Forecast metrics exclude outcomes already known at observation time."
+  ]
+}
